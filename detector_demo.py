@@ -29,6 +29,7 @@ def main_demo(args):
         input_img = detector_patente.preprocess(frame)
         # Inference
         yolo_out = detector_patente.predict(input_img)
+        print('FRAME:', frame_id)
         # Bounding Boxes despues de NMS
         bboxes = detector_patente.procesar_salida_yolo(yolo_out)
         # Mostrar predicciones
@@ -48,6 +49,7 @@ def main_demo(args):
             print(f'FPS: {fps:.0f}')
         if args.mostrar_resultados:
             result = cv2.cvtColor(frame_w_preds, cv2.COLOR_RGB2BGR)
+            print('RESULTADO', result)
             # Show results
             cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
             cv2.imshow("result", result)

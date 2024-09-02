@@ -78,6 +78,7 @@ class ALPR:
         end = timer()
         total_time += end - start
         font_scale = 1.25
+        plate = ''
         for yolo_prediction in iter_coords:
             x1, y1, x2, y2, _ = yolo_prediction
             #
@@ -112,4 +113,4 @@ class ALPR:
                     lineType=cv2.LINE_AA,
                     thickness=2,
                 )
-        return frame, total_time
+        return frame, total_time, plate

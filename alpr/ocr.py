@@ -46,7 +46,7 @@ class PlateOCR:
         Devuelve False si hay algun caracter
         con probabilidad por debajo de thresh
         """
-        return all(prob >= thresh for prob in probs)
+        return all(prob >= thresh for prob in probs[0])
 
     def predict_ocr(self, x1: int, y1: int, x2: int, y2: int, frame: np.ndarray):
         """

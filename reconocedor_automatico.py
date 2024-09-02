@@ -44,7 +44,7 @@ def main_demo(cfg, demo=True, benchmark=True, save_vid=False):
             # continue
             break
         if demo:
-            frame_w_pred, total_time = alpr.mostrar_predicts(
+            frame_w_pred, total_time, plate = alpr.mostrar_predicts(
                 frame)
             frame_w_pred = cv2.cvtColor(frame_w_pred, cv2.COLOR_RGB2BGR)
             frame_w_pred_r = cv2.resize(frame_w_pred, dsize=(1400, 1000))
@@ -57,6 +57,7 @@ def main_demo(cfg, demo=True, benchmark=True, save_vid=False):
                 out.write(frame_w_pred)
             cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
             cv2.imshow("result", frame_w_pred_r)
+            print('FRAME:', frame_id, 'PLATE:', plate)
             if cv2.waitKey(cv2_wait) & 0xFF == ord('q'):
                 break
         else:
